@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+       <h1> ToDo-App</h1>
+    </header>
+    <section id="styling" align="center" >
+        <h2 class="ho">Task List</h2>
+        <section class="container">
+            <input type="text" v-model="ettitle" placeholder="Title of todo"> <br>
+            <input type="text" v-model="etbody" placeholder="Your goal sir"> <br>
+            <input type="checkbox" v-model="etsts"> <br>
+            <button @click="addGoal">Add goal</button> <br>
+        </section>
+        <section class="container">
+            <ul>
+                <li v-for="(goal ,index) in goals"> 
+                    <span> index: {{index}} </span>
+                    <br>
+                    <span> title: {{ goal.t }} </span><br>
+                    <span> body: {{goal.b}} </span><br>
+                    <span> status: {{goal.s}}  </span><br>
+                    <span @click="removeG" :key="goal" style="cursor:pointer;"> X </span>
+                    <br>
+                    <span style="cursor: pointer;">  Updt
+                        <span >
+                            <input type="text" v-model="updtbody">
+                            <input type="checkbox" v-model="updtsts">
+                            <button @click="editGoal" >Edit </button>
+                        </span>
+                    </span>
+                    <br><br>
+                </li>
+                <!-- <li>
+                     ❤️🧡💛💚💙💜❣️❣️❣️💕💞💓💗💖💘💝💟
+                </li> -->
+            </ul>
+           
+        </section>
+    </section>
+</body>
+</html>
